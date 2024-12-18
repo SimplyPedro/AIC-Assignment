@@ -1,0 +1,341 @@
+@prefix : <http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix base: <http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/> .
+
+<http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/attempts
+:attempts rdf:type owl:ObjectProperty ;
+          rdfs:domain :User ;
+          rdfs:range :Quiz ;
+          rdfs:comment "user attempts quiz"@en-gb .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/contains
+:contains rdf:type owl:ObjectProperty ;
+          rdfs:domain :Quiz ;
+          rdfs:range :Question ;
+          rdfs:comment "quiz contains questions"@en-gb .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/corresponds
+:corresponds rdf:type owl:ObjectProperty ;
+             rdfs:domain :Result ;
+             rdfs:range :Question ;
+             rdfs:comment "result corresponds with question"@en-gb .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/has
+:has rdf:type owl:ObjectProperty ;
+     rdfs:domain :Perfomance_Log ,
+                 :Question ;
+     rdfs:range :Answer ,
+                :Media ,
+                :Result ;
+     rdfs:comment "performance has result"@en-gb ,
+                  """question has answers
+question has media"""@en-gb .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/isSelectedBy
+:isSelectedBy rdf:type owl:ObjectProperty ;
+              rdfs:domain :Answer ;
+              rdfs:range :User ;
+              rdfs:comment "answer is selected by user"@en-gb .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/isTriggeredBy
+:isTriggeredBy rdf:type owl:ObjectProperty ;
+               rdfs:domain :UserAction ;
+               rdfs:range :Perfomance_Log ;
+               rdfs:comment "userAction is triggered by performance"@en-gb .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/links
+:links rdf:type owl:ObjectProperty ;
+       rdfs:domain :Result ;
+       rdfs:range :Chosen ,
+                  :Correct ;
+       rdfs:comment "result links to chosen answer"@en-gb ,
+                    "result links to correct answer"@en-gb .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/provides
+:provides rdf:type owl:ObjectProperty ;
+          rdfs:domain :Question ;
+          rdfs:range :Pedagogical_Support ;
+          rdfs:comment "question provides pedagogical support"@en-gb .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/shows
+:shows rdf:type owl:ObjectProperty ;
+       rdfs:domain :Summary ;
+       rdfs:range :Perfomance_Log ;
+       rdfs:comment "summary shows performance"@en-gb .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/TotalQuestions
+:TotalQuestions rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Result ;
+                rdfs:range xsd:integer ;
+                rdfs:comment "Total questions attempted" .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/correctResponse
+:correctResponse rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Result ;
+                 rdfs:range xsd:integer ;
+                 rdfs:comment "total number of correct responses" .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/currentQuestionIndex
+:currentQuestionIndex rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Quiz ;
+                      rdfs:range xsd:integer ;
+                      rdfs:comment "index of current question"@en-gb .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/filePath
+:filePath rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Media ;
+          rdfs:range xsd:string ;
+          rdfs:comment "file path to media"@en-gb .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/hint
+:hint rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Question ;
+      rdfs:range xsd:string ;
+      rdfs:comment "hint on question"@en-gb .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/info
+:info rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Question ;
+      rdfs:range xsd:string ;
+      rdfs:comment "extra info on question"@en-gb .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/isCorrect
+:isCorrect rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Answer ;
+           rdfs:range xsd:boolean ;
+           rdfs:comment "whether the answer is correct"@en-gb .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/mediaType
+:mediaType rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Media ;
+           rdfs:range xsd:string ;
+           rdfs:comment "type of media such as image"@en-gb .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/name
+:name rdf:type owl:DatatypeProperty ;
+      rdfs:domain :User ;
+      rdfs:range xsd:string ;
+      rdfs:comment "name of the user"@en-gb .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/passingScore
+:passingScore rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Quiz ;
+              rdfs:range xsd:integer ;
+              rdfs:comment "score needed to pass"@en-gb .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/score
+:score rdf:type owl:DatatypeProperty ;
+       rdfs:domain :User ;
+       rdfs:range xsd:integer ;
+       rdfs:comment "score of the user" .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/scorePercentage
+:scorePercentage rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Summary ;
+                 rdfs:range xsd:float ;
+                 rdfs:comment "final score percentage of user"@en-gb .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/supportType
+:supportType rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Pedagogical_Support ;
+             rdfs:range xsd:string ;
+             rdfs:comment "type of pedagogical support such as hint and info"@en-gb .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/text
+:text rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Answer ,
+                  :Question ;
+      rdfs:comment "text of answer"@en-gb ,
+                   "text of question"@en-gb .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/title
+:title rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Quiz ;
+       rdfs:range xsd:string ;
+       rdfs:comment "title of quiz" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/Answer
+:Answer rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/Chosen
+:Chosen rdf:type owl:Class ;
+        rdfs:subClassOf :Answer .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/Correct
+:Correct rdf:type owl:Class ;
+         rdfs:subClassOf :Answer .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/Hint
+:Hint rdf:type owl:Class ;
+      rdfs:subClassOf :Pedagogical_Support .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/Image
+:Image rdf:type owl:Class ;
+       rdfs:subClassOf :Media .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/Incorrect
+:Incorrect rdf:type owl:Class ;
+           rdfs:subClassOf :Answer .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/Info
+:Info rdf:type owl:Class ;
+      rdfs:subClassOf :Pedagogical_Support .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/Media
+:Media rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/Pedagogical_Support
+:Pedagogical_Support rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/Perfomance_Log
+:Perfomance_Log rdf:type owl:Class ;
+                rdfs:subClassOf :Summary .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/Question
+:Question rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/Quiz
+:Quiz rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/Result
+:Result rdf:type owl:Class ;
+        rdfs:subClassOf :Perfomance_Log .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/Summary
+:Summary rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/Text
+:Text rdf:type owl:Class ;
+      rdfs:subClassOf :Question .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/User
+:User rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/UserAction
+:UserAction rdf:type owl:Class ;
+            rdfs:subClassOf :Summary .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/Answer1
+:Answer1 rdf:type owl:NamedIndividual ,
+                  :Correct ;
+         :isCorrect "true"^^xsd:boolean ;
+         :text "Ionic bond" .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/Answer1Incorrect
+:Answer1Incorrect rdf:type owl:NamedIndividual ,
+                           :Incorrect ;
+                  :isCorrect "false"^^xsd:boolean ;
+                  :text "Covalent bond" .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/Chemistry
+:Chemistry rdf:type owl:NamedIndividual ,
+                    :Quiz ;
+           :passingScore 70 ;
+           :title "Chemical Bonds" .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/NaClImage
+:NaClImage rdf:type owl:NamedIndividual ,
+                    :Image ;
+           :filePath "NaCl.png" ;
+           :mediaType "image" .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/Peter
+:Peter rdf:type owl:NamedIndividual ,
+                :User ;
+       :attempts :Chemistry ;
+       :name "Peter" ;
+       :score 70 ;
+       rdfs:comment "Peter attempts Chemistry"@en-gb ,
+                    "Peter scores 70"@en-gb ,
+                    "User is Peter"@en-gb .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/Question1
+:Question1 rdf:type owl:NamedIndividual ,
+                    :Text ;
+           :hint "Electron Transfer" ;
+           :text "What type of bond is formed in NaCl?" .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/hint1
+:hint1 rdf:type owl:NamedIndividual ,
+                :Hint ;
+       :supportType "HINT" ;
+       :text "Think about electron transfer" .
+
+
+###  http://www.semanticweb.org/peteressien-ob_ysj/ontologies/2024/11/untitled-ontology-3/result1
+:result1 rdf:type owl:NamedIndividual ,
+                  :Result ;
+         :TotalQuestions 10 ;
+         :correctResponse 7 .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
